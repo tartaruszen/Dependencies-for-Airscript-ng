@@ -38,23 +38,24 @@ Hashcat has these Character-set codes:
 
 So how do I use these? 
 
-Quite simple. Like I stated in the aforemention example if I have a sky router and I know that it uses only 8 UPPERCASE characters,
-I can specify an option to hashcat like this (without quotes) 
+Quite simple. Like I stated in the aforementioned example if I know that it uses only 8 UPPERCASE characters,
+I can specify something like this (without quotes) 
 
 "?u?u?u?u?u?u?u?u" 
+ ^^A question mark represents that its a new character and the 'u' or 'd' or whatever you use after it defines the range of characters the '?' can be. Use the charset table above to view all the available ranges.  
 
-This means that I am telling it to brute-force all the key-combinations in the 8 UPPERCASE character space. This is called keyspace bruteforcing.
-Running a brute-force while providing no additional details is disasterous and the chances of resolving the key for your target Wireless-network is very slim.
+In the example above, I am telling it to brute-force all the key-combinations in the 8 UPPERCASE character space. This is called keyspace bruteforcing.
+Running a brute-force while providing no additional details is disasterous and the chances of resolving the key for your target Wireless-network is very slim. Specifying a keyspace, shortens your crack time from millions of years to just a few weeks/days (Still practical for a determined individual).
 
-Specifying a keyspace, shortens your crack time from millions of years to just a few weeks (Still practical).
-Additionally, if you know any characters from, say for example an 8 UPPERCASE character passphrase, you can reduce the crack time to perhaps just ~30 or so seconds like this: 
+Additionally, if you know any characters from, say for example, an 8 character passphrase, you can reduce the crack time to perhaps just ~30 or so seconds like this: 
 
 "ABCD?u?u?u?u"
+"?d?d?d?d5678
 
-Now that you're armed with this information, You can press Q to exit once you have written down what ?x combination you want.
-As a bonus I have included the router keyspace list available below. 
+Now that you're armed with this information, You can press 'Q' to exit once you have written down what ?x combination you want.
+As a bonus I have included the router keyspace list below. 
 
-Please note that you might not be able to create ?x combinations for some routers. Your luck may vary (its really easy for SKY routers atleast) .   
+Please note that you might not be able to create ?x combinations for some routers. Your luck may vary (its really easy for SKY routers atleast).   
 
 I didn't compile this, somebody on the internet did. Props to him. Good luck and have fun:
 
