@@ -113,4 +113,5 @@ I didn't compile this, somebody on the internet did. Props to him. Good luck and
 							Netia-XXXXXX - [0-9a-f] Len: 13
 
 List Last updated: August 2017
+Author: https://github.com/Sh3llcod3/
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
