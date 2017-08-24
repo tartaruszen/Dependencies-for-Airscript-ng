@@ -1,0 +1,116 @@
+|---------------------------------------------------------------|
+|			[CONTROLS]				|
+|								|
+|		Move page up: UP-ARROW				|
+|		Move page down: DOWN-ARROW/Enter		|
+|		Exit and resume: q				|
+|								|
+|			[CONTROLS]				|
+|								|
+| Returning user? scroll down to the router keyspace section	|
+|---------------------------------------------------------------|
+
+Welcome user. If you are reading this, you wish to use HASHCAT to crack WPA/WPA2 handshakes using the keyspace brute force method.
+
+So what is the keyspace brute force method?
+
+Simply put, a keyspace is a number of key combinations defined by a router manufacturer. 
+For example: I have a sky router who's passphrase is 'ABCDEFGH', while I have a buddy who also has a sky router who's passphrase is 'HGFEDCBA'. 
+From this I can deduce that by default SKY router passwords must contain 8 UPPERCASE characters. 
+Knowing this information, I can then input these values into hashcat when selecting the brute-force attack mode to shorten the crack time significantly.
+
+Hashcat has these Character-set codes:
+
+
+- [ Built-in Charsets ] -
+
+  ? | Charset
+ ===+=========
+  l | abcdefghijklmnopqrstuvwxyz
+  u | ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  d | 0123456789
+  h | 0123456789abcdef
+  H | 0123456789ABCDEF
+  s |  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  a | ?l?u?d?s
+  b | 0x00 - 0xff
+
+
+So how do I use these? 
+
+Quite simple. Like I stated in the aforemention example if I have a sky router and I know that it uses only 8 UPPERCASE characters,
+I can specify an option to hashcat like this (without quotes) 
+
+"?u?u?u?u?u?u?u?u" 
+
+This means that I am telling it to brute-force all the key-combinations in the 8 UPPERCASE character space. This is called keyspace bruteforcing.
+Running a brute-force while providing no additional details is disasterous and the chances of resolving the key for your target Wireless-network is very slim.
+
+Specifying a keyspace, shortens your crack time from millions of years to just a few weeks (Still practical).
+Additionally, if you know any characters from, say for example an 8 UPPERCASE character passphrase, you can reduce the crack time to perhaps just ~30 or so seconds like this: 
+
+"ABCD?u?u?u?u"
+
+Now that you're armed with this information, You can press Q to exit once you have written down what ?x combination you want.
+As a bonus I have included the router keyspace list available below. 
+
+Please note that you might not be able to create ?x combinations for some routers. Your luck may vary (its really easy for SKY routers atleast) .   
+
+I didn't compile this, somebody on the internet did. Props to him. Good luck and have fun:
+
+----------------------------------------------------------------[Router keyspaces]-------------------------------------------------------------------------------------------
+
+							BTHomeHub-XXXX - [0-9a-f] Len: 10
+							BTHomeHub2-XXXX - [2-9a-f] Len: 10
+							BTHub3 - [2-9a-f] Len: 10
+							BTHub4 - [2-9a-f] Len: 10
+							BTHub5 - [2-9a-f] Len: 10
+							BTHub6 - [0-9a-zA-Z] Len: 10 or 12
+							ThomsonXXXXXX - [0-9a-f] Len: 10
+							PlusnetWireless-XXXXXX - [0-9A-F] Len: 10
+							belkin.xxx - [2-9a-f] Len: 8
+							belkin.xxxx - [2-9a-f] Len: 8
+							Belkin.XXXX - [0-9A-F] Len: 8
+							Belkin_XXXXXX - [0-9A-F] Len: 8
+							BELL### - [0-9A-F] Len: 8
+							BELL#### - [0-9A-F] Len: 10
+							TP-LINK_###### - [0-9A-F] Len: 8
+							TDC-#### - [0-9a-f] Len: 9
+							TNCAPXXXXXX - [0-9A-F] Len: 10
+							WLAN1-XXXXXX - [0-9A-F] Len: 11
+							TelstraXXXXXX - [0-9A-F] Len:10
+							BigPondXXXXXX - [0-9A-F] Len:10
+							2WIREXXX - [0-9] Len: 10
+							ONOXXXX - [0-9] Len: 10
+							DJAWEB_##### - [0-9] Len: 10
+							TIM_PN51T_XXXX - [0-9] Len: 8 - WPS pin is 12345670... and WPS can't be disabled...
+							INFINITUM#### - [0-9] Len: 10
+							NETGEARXX - Adjective + Noun + 3 Digits
+							CenturyLinkXXXX - [0-9a-f] Len: 14
+							BrightBox-XXXXXX - [??] Len: 8
+							EEBrightBox-XXXXXX - [3 word with hyphens]
+							Orange-XXXX - [2345679ACEF] Len: 8
+							TALKTALK-XXXXXX - [ABCDEFGHJKMNPQRTUVWXY346789] Len: 8
+							AOLBB-XXXXXX - [0-9A-Z] Len: 8
+							UPCXXXXXXX - [A-Z] Len: 8
+							SKYXXXXX - [A-Z] Len: 8
+							Tech_XXXXXXXX - [A-Z] Len: 8
+							Keenetic-XXXX - [a-zA-Z0-9] Len: 8 (Might be scope to reduce the charset but even so, large key-space)
+							Virgin Media [abcdefghjklmnpqrstuvwxyz] Length 8 i and o omitted.
+							VMXXXXXXX-2G [abcdefghjklmnpqrstuvwxyz] Length 8 i and o omitted.
+							VMXXXXXXX-5G [abcdefghjklmnpqrstuvwxyz] Length 8 i and o omitted.
+							VMXXXXXXX [0-9a-zA-Z] Len: 12
+							FRITZ!Box Fon WLAN #### - [0-9] Len: 16
+							EasyBox-###### - [0-9A-F] Len: 9
+							MobileWifi-xxxx - [0-9] Len: 8
+							3Wireless-Modem-XXXX - [0-9A-F]
+							UNITE-XXXX - [0-9] Len: 8
+							Verizon MIFIXXXX XXXX - [0-9] Len: 11
+							VirginMobile MiFiXXXX XXX - [0-9] Len: 11
+							E583x-xxxx - [0-9] Len: 8
+							E583x-xxxxx - [0-9A-F] Len: 8
+							Domino-XXXX - [0-9A-F] Len: 8
+							Netia-XXXXXX - [0-9a-f] Len: 13
+
+List Last updated: August 2017
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
